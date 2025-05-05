@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lil' Green</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="chat-hidden"> <!-- ADD chat-hidden class like home.html -->
+<!-- 🔝 Top Bar -->
+<header class="top-bar">
+    <div class="top-left">
+      <img src="/assets/CSGOAce_Flat.png" alt="logo"/>
+    </div>
+
+    <div class="top-actions">
+      <div class="balance-container">
+        <div class="balance hidden">
+          🔸 <span id="balance-amount">0.00</span>
+        </div>
+        <button class="deposit-btn" onclick="location.href='/deposit.html'">DEPOSIT</button>
+      </div>
+    
+      <div class="profile-dropdown-container">
+        <button class="profile-btn" onclick="toggleDropdown()">
+          <img id="profile-avatar" src="" alt="Avatar" style="display: none; width: 24px; height: 24px; border-radius: 50%; margin-right: 6px;">
+          <span id="profile-btn-text">Login</span>
+        </button>
+        <div id="profile-dropdown" class="profile-dropdown hidden">
+          <a id="steam-login-link" class="dropdown-link">Sign in with Steam</a>
+        </div>
+      </div>
+    
+      <button class="rewards-btn">🎁 Rewards</button>
+      <button id="topbar-chat-btn" class="chat-btn-top">💬</button>
+    </div>   
+  </header>
+
+
+  <a href="../home.html" class="back-link">← Back to Menu</a>
+  
+<body>
+  <div id="errorBox" class="error-box hidden">
+    <div class="error-content">
+      <div class="error-icon">❗</div>
+      <div>
+        <div class="error-title">Error</div>
+        <div class="error-message" id="errorMessage"></div>
+      </div>
+    </div>
+    <div class="error-timer" id="errorTimer"></div> <!-- ⬅️ New timer bar -->
+  </div>
+  <div class="page-content">
+  <div class="case-page">
+    <!-- Left Panel: Case Info -->
+    <div class="flex flex-wrap justify-center gap-8 items-start mt-8">
+      <!-- Case Info (Left) -->
+      <div class="case-info text-center">
+        <img src="../assets/LilGreen.png" alt="Azul Ascent" class="case-img mx-auto"/>
+        <h2 class="mt-2 text-xl font-semibold">Lil' Green</h2>
+        <p class="price mb-2">🔸 1.31</p>
+
+      </div>
+    
+      <!-- Spinner (Right) -->
+      <div class="slot-machine">
+        <div class="center-indicator"></div>
+        <div class="reel-container">
+          <div class="center-line top"></div>
+          <div class="center-line bottom"></div>
+          <div class="reel" id="reel"></div>
+        </div>
+        <div class="result-box" id="resultBox">
+          <div class="result-header" id="resultHeader"></div>
+          <div class="result-name" id="resultName"></div>
+          <div class="result-value" id="resultValue"></div>
+        </div>
+      </div>
+    </div>
+    <div class="spin-buttons">
+      <button id="spinButton" class="spin-button">SPIN FOR🔸1.31</button>
+      <button id="demoSpinButton" class="demo-spin-button">DEMO SPIN</button>
+    </div>
+    
+    
+    
+
+    <!-- Bottom: Rewards -->
+    <div class="rewards-container">
+      <!-- Each weapon card -->
+      <div class="weapon-card">
+        <div class="drop-rate">1.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbupIgthwczLZAJF7dC_mL-OlPjLP7LWnn8f6pAg3buWrN7z2gXm_0BqZjqlcIGVIANtYF7T_Vm9wu3p0MO8uZ7JzGwj5Hd0pQL-vQ/360fx360f" alt="MAC-10 | Jungle Strike" />
+        <div class="label">StatTrak™ Galil AR | Eco</div>
+        <div class="value">🔸 16.82</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">12.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbupIgthwczPYgJF7dC_mL-dlvnwMrfummJW4NE_jriQpdWn3AHt-xJtYGyhdYSUcgA5ZVDV-VLvw73r05Dq75TJmCRquz5iuyizKHt3QA/360fx360f" alt="P90 | Wild Growth" />
+        <div class="label">StatTrak™Galil AR | Vandal</div>
+        <div class="value">🔸 7.33</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">27.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbupIgthwczbfgJF_tmzmr-HnvD8J_WCxjsHuZFz0rqY946h0Ae2rxBuYzr2LYPDcQ5oY1iGqFS6kObqhMS_ot2XnrGWJTew/360fx360f" alt="P90 | Wild Growth" />
+        <div class="label">Galil AR | Green Apple</div>
+        <div class="value">🔸 0.37</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">60.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbupIgthwczLZAJS49Cvq4eZkvL6DLzQmmJd18h0juDU-MKjjgCxqhBqZDz7cYPBeg85YlrW_gO5k-vshJO76ZTBySYwsnYhs3_ZgVXp1lfHVYXg/360fx360f" alt="P90 | Wild Growth" />
+        <div class="label">Galil AR | NV</div>
+        <div class="value">🔸 0.03</div>
+      </div>
+    </div>
+  </div>
+  <div id="chat-container"  class="hidden">
+    <div class="chat-header">
+      🟡 Live Chat
+      <span id="chat-close-btn" class="chat-close">✖</span>
+    </div>    
+    <div id="chat-box"></div>
+    <div class="chat-input-area">
+      <input id="chat-input" type="text" placeholder="Type..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <script src="../javascripts/LilGreen.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Azul Ascent</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="chat-hidden">
+<!-- 🔝 Top Bar -->
+<header class="top-bar">
+  <div class="top-left">
+    <img src="/assets/CSGOAce_Flat.png" alt="logo"/>
+  </div>
+
+  <div class="top-actions">
+    <div class="balance-container">
+      <div class="balance hidden">
+        🔸 <span id="balance-amount">0.00</span>
+      </div>
+      <button class="deposit-btn" onclick="location.href='/deposit.html'">DEPOSIT</button>
+    </div>
+  
+    <div class="profile-dropdown-container">
+      <button class="profile-btn" onclick="toggleDropdown()">
+        <img id="profile-avatar" src="" alt="Avatar" style="display: none; width: 24px; height: 24px; border-radius: 50%; margin-right: 6px;">
+        <span id="profile-btn-text">Login</span>
+      </button>
+      <div id="profile-dropdown" class="profile-dropdown hidden">
+        <a id="steam-login-link" class="dropdown-link">Sign in with Steam</a>
+      </div>
+    </div>
+  
+    <button class="rewards-btn">🎁 Rewards</button>
+    <button id="topbar-chat-btn" class="chat-btn-top">💬</button>
+  </div>   
+</header>
+
+  <a href="../home.html" class="back-link">← Back to Menu</a>
+  
+  <div id="errorBox" class="error-box hidden">
+    <div class="error-content">
+      <div class="error-icon">❗</div>
+      <div>
+        <div class="error-title">Error</div>
+        <div class="error-message" id="errorMessage"></div>
+      </div>
+    </div>
+    <div class="error-timer" id="errorTimer"></div> <!-- ⬅️ New timer bar -->
+  </div>
+  <div class="page-content">
+  <div class="case-page">
+    <!-- Left Panel: Case Info -->
+    <div class="flex flex-wrap justify-center gap-8 items-start mt-8">
+      <!-- Case Info (Left) -->
+      <div class="case-info text-center">
+        <img src="../assets/AzulAscentCase.png" alt="Azul Ascent" class="case-img mx-auto"/>
+        <h2 class="mt-2 text-xl font-semibold">Azul Ascent</h2>
+        <p class="price mb-2">🔸 0.32</p>
+
+      </div>
+    
+      <!-- Spinner (Right) -->
+      <div class="slot-machine">
+        <div class="center-indicator"></div>
+        <div class="reel-container">
+          <div class="center-line top"></div>
+          <div class="center-line bottom"></div>
+          <div class="reel" id="reel"></div>
+        </div>
+        <div class="result-box" id="resultBox">
+          <div class="result-header" id="resultHeader"></div>
+          <div class="result-name" id="resultName"></div>
+          <div class="result-value" id="resultValue"></div>
+        </div>
+      </div>
+    </div>
+    <div class="spin-buttons">
+      <button id="spinButton" class="spin-button">SPIN FOR🔸0.32</button>
+      <button id="demoSpinButton" class="demo-spin-button">DEMO SPIN</button>
+    </div>
+    
+    
+    
+
+    <!-- Bottom: Rewards -->
+    <div class="rewards-container">
+      <!-- Each weapon card -->
+      <div class="weapon-card">
+        <div class="drop-rate">0.05%</div>
+        <img src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo6m1FBRp3_bGcjhQ08-5kb-Jm-LxDLrfklRW58l1teXI8oThxgK280FvZTvxcICScFdtaA3TrlTvxu_m0JK6tM-czXQwuXN0syqIyhapwUYbptsUrcE/360fx360f" alt="USP-S | Leafy" />
+        <div class="label">USP-S | Royal Guard</div>
+        <div class="value">🔸 19.85</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">0.30%</div>
+        <img src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou6r8FA951szKfShH08y3nZOHku7LPr7Vn35cppUg3uuR8dnx3gKwrUBtZzzzdY6ddA88MlzW8gW_yea7hpe5uZjMziN9-n51c--JB18/360fx360f" alt="MAC-10 | Jungle Strike" />
+        <div class="label">MP9 | Cobalt Paisley</div>
+        <div class="value">🔸 2.73</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">0.35%</div>
+        <img src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovrG1eVcwg8zbYTh9_9-3hoa0h-X9Pa_um25V4dB8xLqTodqt3VHsqkJqZWrwctXBc1VtaFmB8lO-kOrq0MfvvJ2cznNhsiI8pSGKPB3yHF4/360fx360f" alt="P90 | Wild Growth" />
+        <div class="label">P2000 | Royal Baroque</div>
+        <div class="value">🔸 2.67</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">3.30%</div>
+        <img src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpooru2LhVfwPzNTjhO6d-ihomIqPX4Jr7ummJW4NE_ibuUpN-tiVW3_0I5NWulJIXGcANsaQ7R-1i4kuvng8O5vcubmHBr6T5iuyigcx4zrg/360fx360f" alt="Dualies | Emerald Plate" />
+        <div class="label">Zeus x27 | Electric Blue</div>
+        <div class="value">🔸 1.40</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">6.00%</div>
+        <img src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbupIgthwczbfjh9_tO0nY6YkvDzDLfYkWNFpsF12bnE8NTx0Ffm_0RpZmqiJYaTIVM6M1DXqFi2xL26jMDo6ZnByHJ9-n519j48GTc/360fx360f" alt="FAMAS | Forest Guard" />
+        <div class="label">Galil AR | Robin's Egg</div>
+        <div class="value">🔸 1.06</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">10.00%</div>
+        <img src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposLOzLhRlxfbGTi5N6eO0mJWOqPb6N4TSnnle5cBOhuDG_Zi73w3k-0I_Mm71J9WQJlA-YQmB-gftwO3n1pG07ZvPwHZg6yYqtinVnAv330--FPI2kw/360fx360f" alt="FAMAS | Forest Guard" />
+        <div class="label">Five-SeveN | Sky Blue</div>
+        <div class="value">🔸 0.63</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">25.00%</div>
+        <img src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpouLWzKjhz3Pz3cD5Q9dC_l7-Nm_jjDK_EhHpE58xij9bJ8I3jkRrh_Us4YWjycoaSJlI4Nw3QrFm3yO67hZPtuZmcnCBm73Mi5XfcmhO_n1gSORzx1Jr6/360fx360f" alt="FAMAS | Forest Guard" />
+        <div class="label">Nova | Turquoise Pour</div>
+        <div class="value">🔸 0.24</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">55.00%</div>
+        <img src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopL-zJAt21uH3YjJB5OO_moSCkPjLNKnYhnhu4MBwnPCPoNytjVK3_0JlMTvydoeVdA9qM1nZ-lTskOvth8O77pTNySBqvSMjtmGdwUKtitTLLA/360fx360f" alt="FAMAS | Forest Guard" />
+        <div class="label">R8 Revolver | Cobalt Grip</div>
+        <div class="value">🔸 0.04</div>
+      </div>
+  </div>
+  <div id="chat-container" class="hidden">
+    <div class="chat-header">
+      🟡 Live Chat
+      <span id="chat-close-btn" class="chat-close">✖</span>
+    </div>    
+    <div id="chat-box"></div>
+    <div class="chat-input-area">
+      <input id="chat-input" type="text" placeholder="Type..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>  
+  </div>
+  <script src="../javascripts/AzulAscent.js"></script>
+</body>
+</html>

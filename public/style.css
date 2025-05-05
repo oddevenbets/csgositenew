@@ -1,0 +1,879 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #111111;
+  color: #fff;
+  padding-top: 60px; /* Matches top-bar height */
+}
+
+/* Top Bar Styles */
+.top-bar {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  background-color: #1b1b1b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 30px; /* 🔄 Push everything inward from the edge */
+}
+
+
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.hamburger {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 15px;
+}
+
+.balance-container {
+  display: flex;
+  align-items: center;
+  background-color: #1b1b1b;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 38px;
+}
+
+
+.balance {
+  display: flex;
+  align-items: center;
+  background-color: #111111;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffcc00;
+  height: 100%;
+}
+
+.coin-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.deposit-btn {
+  background-color: #ffcc00;
+  color: #111111;
+  font-weight: bold;
+  border: none;
+  height: 100%;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.deposit-btn:hover {
+  background-color: #ffb600;
+}
+
+.profile-btn,
+.rewards-btn {
+  background-color: #111111;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  gap: 6px;
+  transition: background-color 0.2s;
+}
+
+.profile-btn:hover,
+.rewards-btn:hover {
+  background-color: #555555;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 20px 0 0 20px;
+  color: #ffcc00;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: #ffd84d;
+  text-decoration: underline;
+}
+
+.case-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.case-info {
+  text-align: center;
+  background: #1b1b1b;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+
+.case-img {
+  width: 150px;
+  height: auto;
+}
+
+.price {
+  margin: 10px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#open-btn {
+  background-color: #111111;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+#open-btn:hover {
+  background-color: #ffb600;
+}
+
+.spinner-placeholder {
+  background: #111c2e;
+  border: 2px dashed #444444;
+  width: 80%;
+  height: 100px;
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  font-size: 1.2em;
+  border-radius: 8px;
+}
+
+.rewards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.weapon-card {
+  background: #1b1b1b;
+  margin-top: 20px;
+  padding: 15px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.weapon-card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.weapon-card .label {
+  margin: 10px 0 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.weapon-card .value {
+  color: #ffb600;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.drop-rate {
+  text-align: center;
+  background: #111111;
+  padding: 8px 16px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+.slot-track > .image-container {
+  flex-shrink: 0;
+}
+
+.slot-track img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  margin: 0 4px;
+}
+
+.profile-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1b1b1b;
+  border: 1px solid #444444;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 200;
+  width: 180px;
+  text-align: center;
+}
+
+.dropdown-link {
+  color: #ffcc00;
+  text-decoration: none;
+  display: block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+  text-align: center;
+}
+
+.dropdown-link:hover {
+  background-color: #444444;
+  color: #ffd84d;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#profile-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: none;
+}
+
+#profile-btn-text {
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main-deposit-btn {
+  background-color: #f5a623;
+  color: #111111;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px; /* ✅ Rounded corners */
+  transition: background-color 0.2s;
+  margin-top: 10px;
+}
+
+.main-deposit-btn:hover {
+  background-color: #ffb600;
+}
+
+.top-left img {
+  height: 90px; /* ✅ good clean size */
+  width: auto;  /* ✅ keep natural aspect ratio */
+}
+
+.error-box {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background-color: #1b1b1b;
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-weight: normal;
+  font-size: 14px;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  max-width: 320px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.error-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.error-icon {
+  background: #ff6a6c; /* bright red background */
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.error-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.error-message {
+  font-size: 14px;
+  color: #cccccc; /* lighter grey */
+}
+
+.error-timer {
+  height: 5px;
+  background-color: #ff6a6c; /* yellow */
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 0 0 8px 8px; /* match rounded corners */
+  transform-origin: left center;
+  transform: scaleX(1);
+  transition: transform 3s linear;
+}
+
+.demo-spin-button {
+  background-color: #666666; /* grey */
+  color: #ffffff; /* white text */
+  border: none;
+  padding: 5px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(100, 116, 139, 0.4);
+}
+
+.spin-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 370px; /* or adjust wider if needed */
+}
+
+.page-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center; /* ✅ center on load */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  max-width: 1400px;
+  gap: 20px;
+  transition: justify-content 0.3s ease;
+}
+
+
+/* Cases Section */
+.cases-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#chat-container {
+  width: 320px;
+  position: fixed; /* FIXED instead of sticky */
+  top: 60px; /* Start right below the top-bar */
+  bottom: 0; /* Stick to the bottom of the screen */
+  left: 0;
+  right: unset; /* Stick to the right of the screen */
+  background-color: #1b1b1b;
+  border-left: 1px solid #444444;
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.4);
+}
+
+
+/* Chat Header */
+.chat-header {
+  background-color: #1b1b1b;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+/* Chat Messages Scroll Area */
+#chat-box {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #111111;
+  padding: 10px;
+  font-size: 14px;
+  color: #fff;
+}
+
+/* Chat Input Area */
+.chat-input-area {
+  display: flex;
+  padding: 8px;
+  background: #1b1b1b;
+  gap: 6px;
+  border-top: 1px solid #444444;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 6px 8px;
+  background-color: #111111;
+  border: 1px solid #444444;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+}
+
+.chat-input-area button {
+  background-color: #ffcc00;
+  color: #111111;
+  font-weight: bold;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-section h1 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+/* Custom Scrollbar for Chat Box */
+#chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+#chat-box::-webkit-scrollbar-track {
+  background: #111111; /* dark background to match chat box */
+}
+
+#chat-box::-webkit-scrollbar-thumb {
+  background: #444444; /* muted blue-gray for the thumb */
+  border-radius: 4px;
+}
+
+#chat-box::-webkit-scrollbar-thumb:hover {
+  background: #ffcc00; /* bright highlight (matches your gold/yellow theme) on hover */
+}
+
+/* Firefox scrollbar (optional) */
+#chat-box {
+  scrollbar-width: thin;
+  scrollbar-color: #444444 #111111;
+}
+
+.chat-close {
+  float: right;
+  color: #ffcc00;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.chat-close:hover {
+  color: #ffd84d;
+}
+
+.chat-btn-top {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1001;
+  background-color: #111111;
+  color: #ffcc00;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.2s;
+}
+
+.chat-btn-top:hover {
+  background-color: #555555;
+}
+
+body:not(.chat-hidden) #topbar-chat-btn {
+  display: none;
+}
+
+
+body:not(.chat-hidden) .page-content {
+  padding-left: 340px; /* instead of padding-right */
+  padding-right: 20px;
+  justify-content: flex-start;
+}
+
+.chat-hidden .page-content {
+  padding-left: 20px !important;
+  justify-content: center !important;
+}
+
+
+
+
+
+.page-content {
+  transition: justify-content 0.3s ease;
+}
+
+.slot-machine {
+  width: 500px; height: 160px;
+  background-color: #1b1b1b;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid #FFD700;
+}
+.reel-container { position: relative; width: 100%; height: 100%; overflow: hidden; }
+.reel {
+  display: flex; position: absolute; top: 0; left: 0;
+  height: 100%; align-items: center;
+  transition-timing-function: cubic-bezier(0.1, 0.9, 0.3, 1);
+}
+.reel img {
+  width: 80px;
+  height: 80px;
+  margin: 0 10px;
+  object-fit: contain;
+  image-rendering: crisp-edges;
+}
+
+.center-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.center-line.top {
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 14px solid #FFD700;
+  border-bottom: 0 solid transparent;
+}
+
+.center-line.bottom {
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 0 solid transparent;
+  border-bottom: 14px solid #FFD700;
+}
+
+.center-indicator {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 14px solid #FFD700;
+  z-index: 15;
+}
+.result-box {
+  position: absolute; top: 55%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 25px;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 20;
+  display: none;
+  border: 2px solid #FFD700;
+  min-width: 200px;
+  max-width: 500px;
+}
+.result-header {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: 1px solid #FFD700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.result-name {
+  font-size: 1.2rem; font-weight: bold;
+  color: white; margin-bottom: 5px;
+}
+.result-value {
+  font-size: 1.1rem; color: #FFD700;
+  font-weight: bold;
+  font-family: system-ui, sans-serif;
+}
+.spin-button {
+  background-color: #FFD700;
+  color: #0B1026;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+.spin-button:hover {
+  background-color: #ffcc00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+}
+.spin-button:disabled {
+  background-color: #666666;
+  color: white;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.demo-spin-button:disabled {
+  background-color: #2e3641; /* darker grey */
+  color: #dddddd; /* lighter text */
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@keyframes flash {
+  0%, 100% { border-color: grey; }
+  50% { border-color: lightgrey; }
+}
+.flash-animation {
+  animation: flash 0.3s linear 3;
+}
+@keyframes rainbow-border {
+  0% { border-color: rgb(255, 116, 116); }
+  14% { border-color: rgb(255, 209, 123); }
+  28% { border-color: rgb(255, 255, 123); }
+  42% { border-color: rgb(119, 255, 119); }
+  57% { border-color: rgb(120, 120, 255); }
+  71% { border-color: rgb(197, 117, 255); }
+  85% { border-color: rgb(255, 125, 255); }
+  100% { border-color: rgb(255, 122, 122); }
+}
+.rainbow-border {
+  animation: rainbow-border 3s linear infinite;
+}
+.rare {
+  color: #FFD700;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+}
+
+.glow-grey { filter: drop-shadow(0 0 8px grey); }
+.glow-blue { filter: drop-shadow(0 0 8px #353ebe); }
+.glow-purple { filter: drop-shadow(0 0 8px #9b5de5); }
+.glow-pink { filter: drop-shadow(0 0 8px #f532fc); }
+.glow-red { filter: drop-shadow(0 0 8px #EB4B4B); }
+.glow-yellow { filter: drop-shadow(0 0 8px #FFD700); }
+
+.border-purple-400 { border-color: #c084fc; }
+
+/* Deposit-specific styles */
+.deposit-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #1b1b1b;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+
+.deposit-btn:hover {
+  background-color: #ffcc00;
+}
+
+/* Modal styles (similar to your existing ones) */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #1b1b1b;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.currency-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.currency-btn {
+  background: #444444;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.currency-btn:hover {
+  background: #555555;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  display: block;
+}
+
+.payment-address {
+  background: #444444;
+  padding: 15px;
+  border-radius: 8px;
+  word-break: break-all;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.copy-btn {
+  background: #ffb600;
+  color: #111111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  display: block;
+  margin: 0 auto;
+}
+
+.loading {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 1001;
+  justify-content: center;
+  align-items: center;
+}
+
+.cases-section {
+  flex: 1;
+  max-width: 2000px;
+}
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boreal Box</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="chat-hidden"> <!-- ADD chat-hidden class like home.html -->
+<!-- 🔝 Top Bar -->
+<header class="top-bar">
+    <div class="top-left">
+      <img src="/assets/CSGOAce_Flat.png" alt="logo"/>
+    </div>
+
+    <div class="top-actions">
+      <div class="balance-container">
+        <div class="balance hidden">
+          🔸 <span id="balance-amount">0.00</span>
+        </div>
+        <button class="deposit-btn" onclick="location.href='/deposit.html'">DEPOSIT</button>
+      </div>
+    
+      <div class="profile-dropdown-container">
+        <button class="profile-btn" onclick="toggleDropdown()">
+          <img id="profile-avatar" src="" alt="Avatar" style="display: none; width: 24px; height: 24px; border-radius: 50%; margin-right: 6px;">
+          <span id="profile-btn-text">Login</span>
+        </button>
+        <div id="profile-dropdown" class="profile-dropdown hidden">
+          <a id="steam-login-link" class="dropdown-link">Sign in with Steam</a>
+        </div>
+      </div>
+    
+      <button class="rewards-btn">🎁 Rewards</button>
+      <button id="topbar-chat-btn" class="chat-btn-top">💬</button>
+    </div>   
+  </header>
+
+
+  <a href="../home.html" class="back-link">← Back to Menu</a>
+  
+<body>
+  <div id="errorBox" class="error-box hidden">
+    <div class="error-content">
+      <div class="error-icon">❗</div>
+      <div>
+        <div class="error-title">Error</div>
+        <div class="error-message" id="errorMessage"></div>
+      </div>
+    </div>
+    <div class="error-timer" id="errorTimer"></div> <!-- ⬅️ New timer bar -->
+  </div>
+  <div class="page-content">
+  <div class="case-page">
+    <!-- Left Panel: Case Info -->
+    <div class="flex flex-wrap justify-center gap-8 items-start mt-8">
+      <!-- Case Info (Left) -->
+      <div class="case-info text-center">
+        <img src="../assets/BorealBoxCase.png" alt="Azul Ascent" class="case-img mx-auto"/>
+        <h2 class="mt-2 text-xl font-semibold">Boreal Box</h2>
+        <p class="price mb-2">🔸 0.17</p>
+
+      </div>
+    
+      <!-- Spinner (Right) -->
+      <div class="slot-machine">
+        <div class="center-indicator"></div>
+        <div class="reel-container">
+          <div class="center-line top"></div>
+          <div class="center-line bottom"></div>
+          <div class="reel" id="reel"></div>
+        </div>
+        <div class="result-box" id="resultBox">
+          <div class="result-header" id="resultHeader"></div>
+          <div class="result-name" id="resultName"></div>
+          <div class="result-value" id="resultValue"></div>
+        </div>
+      </div>
+    </div>
+    <div class="spin-buttons">
+      <button id="spinButton" class="spin-button">SPIN FOR🔸0.17</button>
+      <button id="demoSpinButton" class="demo-spin-button">DEMO SPIN</button>
+    </div>
+    
+    
+    
+
+    <!-- Bottom: Rewards -->
+    <div class="rewards-container">
+      <!-- Each weapon card -->
+      <div class="weapon-card">
+        <div class="drop-rate">0.50%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo6m1FBRp3_bGcjhQ08-5kb-fhfjkOrjQmlRd4cJ5nqeW8dms3la3_UFuYWHxIdCVIQRsYl_Z_QC3yb27gJS8tc_Myno3s3Ej-z-DyGsQJGm9/360fx360f" alt="USP-S | Leafy" />
+        <div class="label">USP-S | Tropical Breeze</div>
+        <div class="value">🔸 12.03</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">1.50%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou7umeldf2-rNTjpQ6dm4q4aEhfLnJ4Tdn2xZ_Itzi-yR8YitilHt_kVpNWj6do6QclI9YwuFrlS-wbznhZK06pScnXAxpGB8spWEyaEx/360fx360f" alt="MAC-10 | Jungle Strike" />
+        <div class="label">MAC-10 | Poplar Thicket</div>
+        <div class="value">🔸 3.19</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">3.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopuP1FA951szSfjJP09C_k4if2fOiMu-Gzz0G7pd10-3ErYjziwPir0c5NWn0JobAcwRsYg7R_wXryO_xxcjryM1M0po/360fx360f" alt="P90 | Wild Growth" />
+        <div class="label">P90 | Mustard Gas</div>
+        <div class="value">🔸 0.41</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">5.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpos7asPwJfwPzLeQJP7c60mIW0kOX9I6junm5Q_tw_2bnFpY6i0Vaxr0E_ZGCgLYfDclVsZl3V-1G_xO--hp_vvpzNwHFh6D5iuygMRLMb3w/360fx360f" alt="Dualies | Emerald Plate" />
+        <div class="label">Dual Berettas | Polished Malachite</div>
+        <div class="value">🔸 0.27</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">90.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposLuoKhRfwOPHTi1D4NGJnIWKge66NeqJwGpVu8Moi-yWrIii3AbgqEM4NmyndYKWcFVqaVrU-FfrlO3qg4j84soCMvUVFw/360fx360f" alt="FAMAS | Forest Guard" />
+        <div class="label">FAMAS | Palm</div>
+        <div class="value">🔸 0.01</div>
+      </div>
+    </div>
+  </div>
+  <div id="chat-container"  class="hidden">
+    <div class="chat-header">
+      🟡 Live Chat
+      <span id="chat-close-btn" class="chat-close">✖</span>
+    </div>    
+    <div id="chat-box"></div>
+    <div class="chat-input-area">
+      <input id="chat-input" type="text" placeholder="Type..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <script src="../javascripts/BorealBox.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dollar Dualies</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="chat-hidden"> <!-- ADD chat-hidden class like home.html -->
+<!-- 🔝 Top Bar -->
+<header class="top-bar">
+    <div class="top-left">
+      <img src="/assets/CSGOAce_Flat.png" alt="logo"/>
+    </div>
+
+    <div class="top-actions">
+      <div class="balance-container">
+        <div class="balance hidden">
+          🔸 <span id="balance-amount">0.00</span>
+        </div>
+        <button class="deposit-btn" onclick="location.href='/deposit.html'">DEPOSIT</button>
+      </div>
+    
+      <div class="profile-dropdown-container">
+        <button class="profile-btn" onclick="toggleDropdown()">
+          <img id="profile-avatar" src="" alt="Avatar" style="display: none; width: 24px; height: 24px; border-radius: 50%; margin-right: 6px;">
+          <span id="profile-btn-text">Login</span>
+        </button>
+        <div id="profile-dropdown" class="profile-dropdown hidden">
+          <a id="steam-login-link" class="dropdown-link">Sign in with Steam</a>
+        </div>
+      </div>
+    
+      <button class="rewards-btn">🎁 Rewards</button>
+      <button id="topbar-chat-btn" class="chat-btn-top">💬</button>
+    </div>   
+  </header>
+
+
+  <a href="../home.html" class="back-link">← Back to Menu</a>
+  
+<body>
+  <div id="errorBox" class="error-box hidden">
+    <div class="error-content">
+      <div class="error-icon">❗</div>
+      <div>
+        <div class="error-title">Error</div>
+        <div class="error-message" id="errorMessage"></div>
+      </div>
+    </div>
+    <div class="error-timer" id="errorTimer"></div> <!-- ⬅️ New timer bar -->
+  </div>
+  <div class="page-content">
+  <div class="case-page">
+    <!-- Left Panel: Case Info -->
+    <div class="flex flex-wrap justify-center gap-8 items-start mt-8">
+      <!-- Case Info (Left) -->
+      <div class="case-info text-center">
+        <img src="../assets/DollarDualies.png" alt="Azul Ascent" class="case-img mx-auto"/>
+        <h2 class="mt-2 text-xl font-semibold">Dollar Dualies</h2>
+        <p class="price mb-2">🔸 1.42</p>
+
+      </div>
+    
+      <!-- Spinner (Right) -->
+      <div class="slot-machine">
+        <div class="center-indicator"></div>
+        <div class="reel-container">
+          <div class="center-line top"></div>
+          <div class="center-line bottom"></div>
+          <div class="reel" id="reel"></div>
+        </div>
+        <div class="result-box" id="resultBox">
+          <div class="result-header" id="resultHeader"></div>
+          <div class="result-name" id="resultName"></div>
+          <div class="result-value" id="resultValue"></div>
+        </div>
+      </div>
+    </div>
+    <div class="spin-buttons">
+      <button id="spinButton" class="spin-button">SPIN FOR🔸1.42</button>
+      <button id="demoSpinButton" class="demo-spin-button">DEMO SPIN</button>
+    </div>
+    
+    
+    
+
+    <!-- Bottom: Rewards -->
+    <div class="rewards-container">
+      <!-- Each weapon card -->
+      <div class="weapon-card">
+        <div class="drop-rate">1.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpos7asPwJf2-r3fDxQ5dK3q5OemeX9IL7ummJW4NE_2rrH89z23FXiqBJsZG-nd4eVJlU-ZF6E-gK7we6-hZDt6JXAnHo2sj5iuyhXECmgPw/360fx360f" alt="MAC-10 | Jungle Strike" />
+        <div class="label">Dual Berettas | Marina</div>
+        <div class="value">🔸 17.66</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">2.50%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpos7asPwJf0v73fi5R5dqvq5KOk8j4OrzZgiVQuJQki7iZ99vx0AOw_RA6MWz7JdSXcwY6YwyD_lTow7q905W7vs6f1zI97cR6kGPX/360fx360f" alt="MAC-10 | Jungle Strike" />
+        <div class="label">Dual Berettas | Hemoglobin</div>
+        <div class="value">🔸 11.78</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">6.50%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpos7asPwJf0Ob3dDFL-Nmlq5WZlfb6IK_ehGZu5Mx2gv2PoNr02Abn_Uo9YGj2J4Kcegc9NAvV_le_yeq60JG9tcuaznNjviIh52GdwUIFUEJ8MQ/360fx360f" alt="MAC-10 | Jungle Strike" />
+        <div class="label">Dual Berettas | Urban Shock</div>
+        <div class="value">🔸 4.46</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">20.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpos7asPwJfwPz3YTxM-NSzhr-HnvD8J_XQx25X7MFw0-rApInwjgfsqkY6YWHzJIaWJFU7MgqF_lbvle3r1Me8ot2Xnk7JCUDK/360fx360f" alt="MAC-10 | Jungle Strike" />
+        <div class="label">Dual Berettas | Panther</div>
+        <div class="value">🔸 2.16</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">25.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpos7asPwJf0uL3dzJQ79myq4yCkP_gfe-Fkj8Eu5wn0-yZ99-h3ALmqUQ9YW_zd9XEIQNtaFCB-VS_kObsg8ei_MOe-yn9l4Y/360fx360f" alt="MAC-10 | Jungle Strike" />
+        <div class="label">Dual Berettas | Stained</div>
+        <div class="value">🔸 0.29</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">45.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpos7asPwJfwPzLeQJD786vmImIqPDmOqvCqWNU6dNoxO2YotujjFflrRI9ZG37cdWSelBoMlvTqwO2lO3rjMW1vZjKwSNn6HU8pSGKMP3Q-8Y/360fx360f" alt="MAC-10 | Jungle Strike" />
+        <div class="label">Dual Berettas | BorDeux</div>
+        <div class="value">🔸 0.03</div>
+      </div>
+    </div>
+  </div>
+  <div id="chat-container"  class="hidden">
+    <div class="chat-header">
+      🟡 Live Chat
+      <span id="chat-close-btn" class="chat-close">✖</span>
+    </div>    
+    <div id="chat-box"></div>
+    <div class="chat-input-area">
+      <input id="chat-input" type="text" placeholder="Type..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <script src="../javascripts/DollarDualies.js"></script>
+</body>
+</html>

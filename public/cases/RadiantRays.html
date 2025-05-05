@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Radiant Rays</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="chat-hidden"> <!-- ADD chat-hidden class like home.html -->
+<!-- 🔝 Top Bar -->
+<header class="top-bar">
+    <div class="top-left">
+      <img src="/assets/CSGOAce_Flat.png" alt="logo"/>
+    </div>
+
+    <div class="top-actions">
+      <div class="balance-container">
+        <div class="balance hidden">
+          🔸 <span id="balance-amount">0.00</span>
+        </div>
+        <button class="deposit-btn" onclick="location.href='/deposit.html'">DEPOSIT</button>
+      </div>
+    
+      <div class="profile-dropdown-container">
+        <button class="profile-btn" onclick="toggleDropdown()">
+          <img id="profile-avatar" src="" alt="Avatar" style="display: none; width: 24px; height: 24px; border-radius: 50%; margin-right: 6px;">
+          <span id="profile-btn-text">Login</span>
+        </button>
+        <div id="profile-dropdown" class="profile-dropdown hidden">
+          <a id="steam-login-link" class="dropdown-link">Sign in with Steam</a>
+        </div>
+      </div>
+    
+      <button class="rewards-btn">🎁 Rewards</button>
+      <button id="topbar-chat-btn" class="chat-btn-top">💬</button>
+    </div>   
+  </header>
+
+
+  <a href="../home.html" class="back-link">← Back to Menu</a>
+  
+<body>
+  <div id="errorBox" class="error-box hidden">
+    <div class="error-content">
+      <div class="error-icon">❗</div>
+      <div>
+        <div class="error-title">Error</div>
+        <div class="error-message" id="errorMessage"></div>
+      </div>
+    </div>
+    <div class="error-timer" id="errorTimer"></div> <!-- ⬅️ New timer bar -->
+  </div>
+  <div class="page-content">
+  <div class="case-page">
+    <!-- Left Panel: Case Info -->
+    <div class="flex flex-wrap justify-center gap-8 items-start mt-8">
+      <!-- Case Info (Left) -->
+      <div class="case-info text-center">
+        <img src="../assets/RadiantRaysCase.png" alt="Azul Ascent" class="case-img mx-auto"/>
+        <h2 class="mt-2 text-xl font-semibold">Radiant Rays</h2>
+        <p class="price mb-2">🔸 0.46</p>
+
+      </div>
+    
+      <!-- Spinner (Right) -->
+      <div class="slot-machine">
+        <div class="center-indicator"></div>
+        <div class="reel-container">
+          <div class="center-line top"></div>
+          <div class="center-line bottom"></div>
+          <div class="reel" id="reel"></div>
+        </div>
+        <div class="result-box" id="resultBox">
+          <div class="result-header" id="resultHeader"></div>
+          <div class="result-name" id="resultName"></div>
+          <div class="result-value" id="resultValue"></div>
+        </div>
+      </div>
+    </div>
+    <div class="spin-buttons">
+      <button id="spinButton" class="spin-button">SPIN FOR🔸0.46</button>
+      <button id="demoSpinButton" class="demo-spin-button">DEMO SPIN</button>
+    </div>
+    
+    
+    
+
+    <!-- Bottom: Rewards -->
+    <div class="rewards-container">
+      <!-- Each weapon card -->
+      <div class="weapon-card">
+        <div class="drop-rate">0.01%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo6m1FBRp3_bGcjhQ09Siq5KOk8jxN7zUhVRd4cJ5nqfHodun3AKy-hc_a276JYfEIFM7aQzYqFS4yOm61MXpv8nKm3dl7CN0-z-DyAQKbHsO/360fx360f" alt="USP-S | Leafy" />
+        <div class="label">USP-S | Bleeding Edge</div>
+        <div class="value">🔸 31.22</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">0.10%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxfwPzNTi9N_9mlq4yCkP_gfe7XkjJU6ZAg3uzErdqt0VXk_UQ4ZW33I4WQJAY-MAzW_FK2k-fsh5ai_MOeiun34gI/360fx360f" alt="MAC-10 | Jungle Strike" />
+        <div class="label">Glock-18 | Coral Bloom</div>
+        <div class="value">🔸 7.73</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">1.89%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopujwezhoyvb3YTRM5-O1m5KKm8j4OrzZgiUEvMEp2r-U9t320ATh_RdsZGqmI9SScVU_ZgrR8gK8xebvjZLuvMzP1zI97WPGZITC/360fx360f" alt="P90 | Wild Growth" />
+        <div class="label">P250 | Red Tide</div>
+        <div class="value">🔸 4.60</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">15.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhox8zFdClD4OOzkIeOhMj4OrzZgiVU6ZJ33rqV9o6jjA3hrkRkY2j3JYPAJFdoM17QrFK8w-i-15O9tZvO1zI97WgrZMci/360fx360f" alt="Dualies | Emerald Plate" />
+        <div class="label">M4A4 | Steel Work</div>
+        <div class="value">🔸 0.77</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">20.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbupIgthwczbfjh94863moeOqPH4OrjaqWdY781lxLjEod_x0AKy-hdqMDrwJYHBd1U-aV_S_FXswOy6gpa1757MzHY17ig8pSGKCxJIv1g/360fx360f" alt="FAMAS | Forest Guard" />
+        <div class="label">Galil AR | O-Ranger</div>
+        <div class="value">🔸 0.73</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">22.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou6ryFBRv7P7dYilD_tiJmImMn-O6MerVxTsHvZNw3bnFoo-kjAbtrUI5Y27yJIeVJA4_YlrV81Dqwe3vhIj84sqSIzRhCg/360fx360f"  alt="Dualies | Emerald Plate"  />
+        <div class="label">MP7 | Short Ochre</div>
+        <div class="value">🔸 0.16</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">40.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpotLO_JAlf2-r3ZjJN6OOxhoGCmcj3MrbeqXlU7Pp5j-jX7MKijFK1_RJuNmylLNCSewU_Z1_W8gDtxevmjJXuuZ7NzHc27iNz4XbdgVXp1sYKV8Rc/360fx360f" alt="FAMAS | Forest Guard" />
+        <div class="label">PP-Bizon | Wood Block Camo</div>
+        <div class="value">🔸 0.04</div>
+      </div>
+    </div>
+  </div>
+  <div id="chat-container"  class="hidden">
+    <div class="chat-header">
+      🟡 Live Chat
+      <span id="chat-close-btn" class="chat-close">✖</span>
+    </div>    
+    <div id="chat-box"></div>
+    <div class="chat-input-area">
+      <input id="chat-input" type="text" placeholder="Type..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <script src="../javascripts/RadiantRays.js"></script>
+</body>
+</html>

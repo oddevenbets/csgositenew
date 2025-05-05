@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cases | CSGOAce</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="chat-hidden">
+  <div id="errorBox" class="error-box hidden">
+    <div class="error-content">
+      <div class="error-icon">❗</div>
+      <div>
+        <div class="error-title">Error</div>
+        <div class="error-message" id="errorMessage"></div>
+      </div>
+    </div>
+    <div class="error-timer" id="errorTimer"></div> <!-- ⬅️ New timer bar -->
+  </div>
+  <!-- 🔝 Top Bar -->
+  <header class="top-bar">
+    <div class="top-left">
+      <img src="/assets/CSGOAce_Flat.png" alt="logo"/>
+    </div>
+
+    <div class="top-actions">
+      <div class="balance-container">
+        <div class="balance hidden">
+          🔸 <span id="balance-amount">0.00</span>
+        </div>
+        <button class="deposit-btn" onclick="location.href='/deposit.html'">DEPOSIT</button>
+      </div>
+    
+      <div class="profile-dropdown-container">
+        <button class="profile-btn" onclick="toggleDropdown()">
+          <img id="profile-avatar" src="" alt="Avatar" style="display: none; width: 24px; height: 24px; border-radius: 50%; margin-right: 6px;">
+          <span id="profile-btn-text">Login</span>
+        </button>
+        <div id="profile-dropdown" class="profile-dropdown hidden">
+          <a id="steam-login-link" class="dropdown-link">Sign in with Steam</a>
+        </div>
+      </div>
+    
+      <button class="rewards-btn">🎁 Rewards</button>
+      <button id="topbar-chat-btn" class="chat-btn-top">💬</button>
+    </div>   
+  </header>
+
+  <a href="../home.html" class="back-link">← Back to Menu</a>
+  <div class="page-content">
+  <main class="deposit-container">
+    <div class="deposit-header">
+      <h1>Deposit Funds</h1>
+      <button class="main-deposit-btn" id="deposit-btn">+ Deposit</button>
+    </div>
+    
+    <div id="transactions-list">
+      <!-- Transactions will be loaded here -->
+    </div>
+  </main>
+  </div>
+
+  <!-- Currency Selection Modal -->
+  <div id="currency-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="close-currency-modal">&times;</span>
+      <h2>Select Currency</h2>
+      <div class="currency-grid" id="currency-grid">
+        <!-- Currencies will be loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Modal -->
+  <div id="payment-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="close-payment-modal">&times;</span>
+      <h2 id="payment-title">Deposit SOL</h2>
+      <img id="qr-code" class="qr-code" src="" alt="QR Code">
+      <div id="payment-address" class="payment-address"></div>
+      <button id="copy-btn" class="copy-btn">Copy Address</button>
+      <p id="payment-note" style="text-align: center; margin-top: 20px;"></p>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loading" class="loading">
+    <div style="color: white; font-size: 24px;">Processing...</div>
+  </div>
+
+  <!-- Error Message -->
+  <div id="error-message" class="error-message"></div>
+  <div id="chat-container"  class="hidden">
+    <div class="chat-header">
+      🟡 Live Chat
+      <span id="chat-close-btn" class="chat-close">✖</span>
+    </div>    
+    <div id="chat-box"></div>
+    <div class="chat-input-area">
+      <input id="chat-input" type="text" placeholder="Type..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <script src="deposit.js"></script>    
+</body>
+</html>

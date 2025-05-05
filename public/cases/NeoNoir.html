@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neo-Noir</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="chat-hidden"> <!-- ADD chat-hidden class like home.html -->
+<!-- 🔝 Top Bar -->
+<header class="top-bar">
+    <div class="top-left">
+      <img src="/assets/CSGOAce_Flat.png" alt="logo"/>
+    </div>
+
+    <div class="top-actions">
+      <div class="balance-container">
+        <div class="balance hidden">
+          🔸 <span id="balance-amount">0.00</span>
+        </div>
+        <button class="deposit-btn" onclick="location.href='/deposit.html'">DEPOSIT</button>
+      </div>
+    
+      <div class="profile-dropdown-container">
+        <button class="profile-btn" onclick="toggleDropdown()">
+          <img id="profile-avatar" src="" alt="Avatar" style="display: none; width: 24px; height: 24px; border-radius: 50%; margin-right: 6px;">
+          <span id="profile-btn-text">Login</span>
+        </button>
+        <div id="profile-dropdown" class="profile-dropdown hidden">
+          <a id="steam-login-link" class="dropdown-link">Sign in with Steam</a>
+        </div>
+      </div>
+    
+      <button class="rewards-btn">🎁 Rewards</button>
+      <button id="topbar-chat-btn" class="chat-btn-top">💬</button>
+    </div>   
+  </header>
+
+
+  <a href="../home.html" class="back-link">← Back to Menu</a>
+  
+<body>
+  <div id="errorBox" class="error-box hidden">
+    <div class="error-content">
+      <div class="error-icon">❗</div>
+      <div>
+        <div class="error-title">Error</div>
+        <div class="error-message" id="errorMessage"></div>
+      </div>
+    </div>
+    <div class="error-timer" id="errorTimer"></div> <!-- ⬅️ New timer bar -->
+  </div>
+  <div class="page-content">
+  <div class="case-page">
+    <!-- Left Panel: Case Info -->
+    <div class="flex flex-wrap justify-center gap-8 items-start mt-8">
+      <!-- Case Info (Left) -->
+      <div class="case-info text-center">
+        <img src="../assets/NeoNoirCase.png" alt="Azul Ascent" class="case-img mx-auto"/>
+        <h2 class="mt-2 text-xl font-semibold">Neo-Noir</h2>
+        <p class="price mb-2">🔸 2.69</p>
+
+      </div>
+    
+      <!-- Spinner (Right) -->
+      <div class="slot-machine">
+        <div class="center-indicator"></div>
+        <div class="reel-container">
+          <div class="center-line top"></div>
+          <div class="center-line bottom"></div>
+          <div class="reel" id="reel"></div>
+        </div>
+        <div class="result-box" id="resultBox">
+          <div class="result-header" id="resultHeader"></div>
+          <div class="result-name" id="resultName"></div>
+          <div class="result-value" id="resultValue"></div>
+        </div>
+      </div>
+    </div>
+    <div class="spin-buttons">
+      <button id="spinButton" class="spin-button">SPIN FOR🔸2.69</button>
+      <button id="demoSpinButton" class="demo-spin-button">DEMO SPIN</button>
+    </div>
+    
+    
+    
+
+    <!-- Bottom: Rewards -->
+    <div class="rewards-container">
+      <!-- Each weapon card -->
+      <div class="weapon-card">
+        <div class="drop-rate">0.20%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0Ob3djFN79eJmo-Chcj4OrzZgiUEvJJz3ujEoomijAHg8kI_N2mgI4HBIVc7ZVzX-FW6wujsg5fptJ_J1zI97WjKBCQa/360fx360f" alt="USP-S | Leafy" />
+        <div class="label">Glock-18 | Neo-Noir</div>
+        <div class="value">🔸 69.09</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">0.30%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17PLfYQJM6dO4m4mZqPv9NLPF2DpSsJVyiLmRot73jFbt-xJtMjr2cYKRIVBrNVuD-lO4k-a515butJzXiSw01PxfcRM/360fx360f" alt="MAC-10 | Jungle Strike" />
+        <div class="label">AWP | Neo-Noir</div>
+        <div class="value">🔸 33.75</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">0.50%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwW09Kzm7-FmP7mDLbUkmJE5Yt02L7Crd6ljFfhqkRpNmj0IoHGJg48NFHQ-APrk-fmgJS47ZqaznEwpGB8snTjxNBG/360fx360f" alt="P90 | Wild Growth" />
+        <div class="label">StatTrak™ M4A4 | Neo-Noir</div>
+        <div class="value">🔸 24.53</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">1.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo6m1FBRp3_bGcjhQ09-jq5WYh-TLPbTYhFRZ7cRnk6fD8NmtjlLtrkM5YGCgJIXAewA-Zl3U_lXvl-zmjJPpvZ_KnyZl73Im-z-DyIm5FT5s/360fx360f" alt="Dualies | Emerald Plate" />
+        <div class="label">USP-S | Neo-Noir</div>
+        <div class="value">🔸 20.15</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">3.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXQ9QVcJY8gulRfSV7cTur_h56KHE59IjtZs7WaLAhs173NJGVE6ojgkILbzvagY-nUxGhU7MQkj-_D99mm2lGxrxBlMW37JoKUbEZgNtg-0UYW/360fx360f" alt="FAMAS | Forest Guard" />
+        <div class="label">Sticker | NEO (Gold) | Berlin 2019</div>
+        <div class="value">🔸 12.36</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">25.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpoo7e1f1Jfxv7YJWh94tm5q46EnuXLO77QgHIfv5Yo2byZ892g2ALs-ks4ajr1dY6UIFJtNVzV-AC7lOnuh5W4usvKzmwj5Hfiiqdk5Q/360fx360f"  alt="Dualies | Emerald Plate"  />
+        <div class="label">UMP-45 | Neo-Noir</div>
+        <div class="value">🔸 5.49</div>
+      </div>
+
+      <div class="weapon-card">
+        <div class="drop-rate">70.00%</div>
+        <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXQ9QVcJY8gulRfSV7cTur_h56KHE59IjtZs7Xrf1NlhKGbJG9EuNmyzIPTxvWlMeKEkGgH6sRwj-rDrIj331Di-UBsYXezetGraE7rlw/360fx360f" alt="FAMAS | Forest Guard" />
+        <div class="label">Sticker | NEO | Berlin 2019</div>
+        <div class="value">🔸 0.19</div>
+      </div>
+    </div>
+  </div>
+  <div id="chat-container"  class="hidden">
+    <div class="chat-header">
+      🟡 Live Chat
+      <span id="chat-close-btn" class="chat-close">✖</span>
+    </div>    
+    <div id="chat-box"></div>
+    <div class="chat-input-area">
+      <input id="chat-input" type="text" placeholder="Type..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <script src="../javascripts/NeoNoir.js"></script>
+</body>
+</html>

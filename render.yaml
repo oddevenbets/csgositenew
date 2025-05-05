@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: case-site
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: STEAM_API_KEY
+        value: 5E9F4B8D31B6390E20AB110368D75267
+      
+      - key: NOWPAYMENTS_API_KEY
+        value: G2ZFCRD-HXZ4P3D-GCJGK4H-27SDSHK
+
+      - key: IPN_SECRET_KEY
+        value: k0K/smC8EuNsxQBwmaXdChc3GDHMe+te
+
+      - key: WEBHOOK_URL
+        value: https://csgosite-j61n.onrender.com/ipn-webhook
+
+      - key: SESSION_SECRET
+        value: UCFcVHFQ87mpg1VdEOn3Ovjid77anKWUa
+
+      - key: NODE_ENV
+        value: production

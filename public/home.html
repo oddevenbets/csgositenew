@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cases | CSGOAce</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<button id="topbar-chat-btn" class="chat-btn-top">💬</button>
+<body class="chat-hidden">
+  <div id="errorBox" class="error-box hidden">
+    <div class="error-content">
+      <div class="error-icon">❗</div>
+      <div>
+        <!-- Error Message -->
+        <div class="error-title">Error</div>
+        <div id="errorMessage" class="error-message"></div>
+      </div>
+    </div>
+    <div class="error-timer" id="errorTimer"></div> <!-- ⬅️ New timer bar -->
+  </div>
+  <!-- 🔝 Top Bar -->
+  <header class="top-bar">
+    <div class="top-left">
+      <img src="/assets/CSGOAce_Flat.png" alt="logo"/>
+    </div>
+
+    <div class="top-actions">
+      <div class="balance-container">
+        <div class="balance hidden">
+          🔸 <span id="balance-amount">0.00</span>
+        </div>
+        <button class="deposit-btn" onclick="location.href='/deposit.html'">DEPOSIT</button>
+      </div>
+    
+      <div class="profile-dropdown-container">
+        <button class="profile-btn" onclick="toggleDropdown()">
+          <img id="profile-avatar" src="" alt="Avatar" style="display: none; width: 24px; height: 24px; border-radius: 50%; margin-right: 6px;">
+          <span id="profile-btn-text">Login</span>
+        </button>
+        <div id="profile-dropdown" class="profile-dropdown hidden">
+          <a id="steam-login-link" class="dropdown-link">Sign in with Steam</a>
+        </div>
+      </div>
+    
+      <button class="rewards-btn">🎁 Rewards</button>
+    </div>   
+  </header>
+
+  <main class="page-content">
+    <div class="cases-section">
+      <div class="hero-section">
+        <h1>Welcome to CSGOAce</h1>
+        <p>Crack open cases and win exclusive weapon skins with unique designs and drop rates.</p>
+      </div>      
+  
+      <div class="rewards-container">
+        <!-- 🔹 Boreal Box -->
+      <div class="weapon-card">
+        <img src="assets/BorealBoxCase.png" alt="Boreal Box"/>
+        <div class="label">Boreal Box</div>
+        <div class="value">🔸 0.17</div>
+        <button onclick="location.href='cases/BorealBox.html'" id="open-btn">View Case</button>
+      </div>
+
+      <!-- 🔹 Azul Ascent -->
+      <div class="weapon-card">
+        <img src="assets/AzulAscentCase.png" alt="Azul Ascent"/>
+        <div class="label">Azul Ascent</div>
+        <div class="value">🔸 0.32</div>
+        <button onclick="location.href='cases/AzulAscent.html'" id="open-btn">View Case</button>
+      </div>
+
+      <!-- 🔹 Radiant Rays -->
+      <div class="weapon-card">
+        <img src="assets/RadiantRaysCase.png" alt="Radiant Rays"/>
+        <div class="label">Radiant Rays</div>
+        <div class="value">🔸 0.46</div>
+        <button onclick="location.href='cases/RadiantRays.html'" id="open-btn">View Case</button>
+      </div>
+      
+      <!-- 🔹 Llama Llama -->
+      <div class="weapon-card">
+        <img src="assets/LlamaLlamaCase.png" alt="Llama Llama"/>
+        <div class="label">Llama Llama</div>
+        <div class="value">🔸 0.69</div>
+        <button onclick="location.href='cases/LlamaLlama.html'" id="open-btn">View Case</button>
+      </div>
+
+      <!-- 🔹 Money Bags -->
+      <div class="weapon-card">
+        <img src="assets/MoneyBagsCase.png" alt="Llama Llama"/>
+        <div class="label">Money Bags</div>
+        <div class="value">🔸 0.85</div>
+        <button onclick="location.href='cases/MoneyBags.html'" id="open-btn">View Case</button>
+      </div>
+
+      <!-- 🔹 Desert Deagle -->
+      <div class="weapon-card">
+        <img src="assets/DesertDeagleCase.png" alt="Desert Deagle"/>
+        <div class="label">Desert Deagle</div>
+        <div class="value">🔸 1.26</div>
+        <button onclick="location.href='cases/DesertDeagle.html'" id="open-btn">View Case</button>
+      </div>
+
+      <!-- 🔹 Lil' Green -->
+      <div class="weapon-card">
+        <img src="assets/LilGreen.png" alt="Desert Deagle"/>
+        <div class="label">Lil' Green</div>
+        <div class="value">🔸 1.31</div>
+        <button onclick="location.href='cases/LilGreen.html'" id="open-btn">View Case</button>
+      </div>
+
+      <!-- 🔹 Dollar Dualies -->
+      <div class="weapon-card">
+        <img src="assets/DollarDualies.png" alt="Desert Deagle"/>
+        <div class="label">Dollar Dualies</div>
+        <div class="value">🔸 1.42</div>
+        <button onclick="location.href='cases/DollarDualies.html'" id="open-btn">View Case</button>
+      </div>
+
+      <!-- 🔹 Dollar Dualies -->
+      <div class="weapon-card">
+        <img src="assets/SilentCT.png" alt="Desert Deagle"/>
+        <div class="label">Silent CT</div>
+        <div class="value">🔸 1.85</div>
+        <button onclick="location.href='cases/SilentCT.html'" id="open-btn">View Case</button>
+      </div>
+
+      <!-- 🔹 Neo Noir -->
+      <div class="weapon-card">
+        <img src="assets/NeoNoirCase.png" alt="Neo-Noir"/>
+        <div class="label">Neo-Noir</div>
+        <div class="value">🔸 2.69</div>
+        <button onclick="location.href='cases/NeoNoir.html'" id="open-btn">View Case</button>
+      </div>
+      </div>
+    </div>
+  
+    <div id="chat-container"  class="hidden">
+      <div class="chat-header">
+        🟡 Live Chat
+        <span id="chat-close-btn" class="chat-close">✖</span>
+      </div>    
+      <div id="chat-box"></div>
+      <div class="chat-input-area">
+        <input id="chat-input" type="text" placeholder="Type..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+  </main>
+  <script src="home.js"></script>    
+</body>
+</html>
